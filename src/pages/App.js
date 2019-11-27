@@ -25,23 +25,17 @@ function App() {
   }
   useEffect(() => {
     window.addEventListener('keydown', onDown);
-    // window.addEventListener('keyup', onUp);
-
-    return () => {
-      window.removeEventListener('keydown', onDown);
-      // window.removeEventListener('keyup', onUp);
-    }
   })
 
   return (
     <Game>
       <World>
         <Sky>
-          <Cloud delay="0" duration="20s" left="-150px" top="100px" />
-          <Cloud delay="5s" duration="25s" left="-275px" top="200px" />
-          <Cloud delay="5s" duration="20s" left="-425px" top="150px" />
-          <Cloud delay="0" duration="25s" left="-550px" top="275px" />
-          <Cloud delay="0" duration="20s" left="-650px" top="50px" />
+          <Cloud delay="0" duration="60s" left="-150px" top="100px" />
+          <Cloud delay="5s" duration="90s" left="-275px" top="200px" />
+          <Cloud delay="5s" duration="60s" left="-425px" top="150px" />
+          <Cloud delay="0" duration="90s" left="-550px" top="275px" />
+          <Cloud delay="0" duration="60s" left="-650px" top="50px" />
         </Sky>
         <Floor>
           <Grass>
