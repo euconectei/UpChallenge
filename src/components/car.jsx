@@ -7,12 +7,12 @@ import * as carImg from '../assets/images/CARRO.png';
 const CarWrap = styled.div`
   bottom: 1vh;
   position: absolute;
+  transition: all .3s linear;
   width: 25vw;
-  left: ${props => props.left};
 `;
 
 export const Car = ({ pos }) => (
-  <CarWrap>
+  <CarWrap style={{ left: pos }}>
     <img src={carImg} style={{ width: '100%' }} />
   </CarWrap>
 );
