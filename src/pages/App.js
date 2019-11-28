@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-import Game from '../components/game/game';
-import { World, Road, Floor, Grass, Kerbs, Track, Lane } from "../components/world/world";
-import { Cloud } from "../components/cloud/cloud";
+import Game from '../components/game';
+import { World, Floor, Grass, Kerbs, Track, Lane } from "../components/world";
+import { Cloud } from "../components/cloud";
 import { Sky } from '../components/sky';
 import { Car } from '../components/car';
+const started = Date.now();
 
 function App() {
   const positions = { left: '5vw', center: '36vw', right: '70vw' };
+  // console.log({ started });
+
+  const timerCount = () => (Date.now() - started);
+
   const [position, setPosition] = useState(positions.center);
+  const [elapsed, setElapsed] = useState(timerCount());
 
   const onDown = event => {
     switch (event.key) {
@@ -23,12 +29,14 @@ function App() {
         break;
     }
   }
+
   useEffect(() => {
     window.addEventListener('keydown', onDown);
-  })
+    setInterval(() => setElapsed(timerCount()), 100);
+  });
 
   return (
-    <Game>
+    <Game time={elapsed} score={'1.234.123'} speed={'345 Km/h'} turbo={true}>
       <World>
         <Sky>
           <Cloud delay="0" duration="60s" left="-150px" top="100px" />
