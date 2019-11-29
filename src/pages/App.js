@@ -22,7 +22,6 @@ import { useTime } from "./../hooks/useTime";
 import { useScore } from "./../hooks/useScore";
 
 // Helpers
-import { scoreCalc } from "../helpers/scoreHelper";
 import { newPosition, positions } from "../helpers/playerHelper";
 
 //Utils
@@ -36,7 +35,7 @@ function App() {
   const [game, updateGame] = useGame();
   const [player, updatePlayer, updateSpeed] = usePlayer();
   const [time, updateElapsed, updateCountdown] = useTime();
-  const [score, updateScore] = useScore(scoreCalc(false));
+  const [score, updateScore] = useScore();
 
   const startGame = ({ started, name }) => {
     updatePlayer({ name: name });
@@ -71,10 +70,7 @@ function App() {
         } else {
           updateElapsed();
           updateSpeed();
-          updateScore({
-            speed: parseInt(player.speed),
-            activedTurbo: player.turbo
-          });
+          updateScore();
         }
       }, 100);
     }
@@ -129,8 +125,8 @@ function App() {
               </World>
             </Game>
           ) : (
-            <NewPlayerForm cbGame={startGame} />
-          )}
+              <NewPlayerForm cbGame={startGame} />
+            )}
         </GameContainer>
         <Manual>
           <h1>UpChallenge</h1>
