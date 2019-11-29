@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Score = styled.div`
   font-family: "Press Start 2P";
-  color: orange;
+  color: darkorange;
   position: absolute;
   top: 5vh;
   left: 5vw;
@@ -13,7 +13,7 @@ const Score = styled.div`
 
 const Speed = styled.div`
   font-family: "Press Start 2P";
-  color: orange;
+  color: darkorange;
   position: absolute;
   bottom: 5vh;
   left: 5vw;
@@ -23,7 +23,7 @@ const Speed = styled.div`
 
 const Time = styled.div`
   font-family: "Press Start 2P";
-  color: orange;
+  color: darkorange;
   position: absolute;
   top: 5vh;
   right: 5vw;

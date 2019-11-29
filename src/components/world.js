@@ -35,15 +35,15 @@ export const moveTrack = keyframes`
 
 export const World = styled.div`
   background-color: #25B4F7;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const Floor = styled.div`
 bottom: 0;
-  height: 75vh;
+  height: 75%;
   left: 50%;
   overflow: hidden;
   position: absolute;
