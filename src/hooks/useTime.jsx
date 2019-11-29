@@ -1,18 +1,29 @@
 import { useState } from "react";
-import { timerCount } from "../helpers/timeHelper";
 
 export const useTime = () => {
   const [time, setTime] = useState({
-    elapsed: timerCount(),
+    countdown: 3000,
+    elapsed: 0
   });
 
-  const updateTime = () => setTime({
-    elapsed: timerCount(),
-  });
+  const updateElapsed = () =>
+    setTime(prev => ({
+      ...prev,
+      elapsed: prev.elapsed + 10
+    }));
 
-  const resetTime = () => {
-    //TODO: pensar no reset do Tempo
-  };
+  const updateCountdown = () =>
+    setTime(prev => ({
+      ...prev,
+      countdown: prev.countdown - 10
+    }));
 
-  return [time, updateTime, resetTime];
+  const resetTime = () =>
+    setTime(prev => ({
+      ...prev,
+      countdown: 3000,
+      elapsed: 0
+    }));
+
+  return [time, updateElapsed, updateCountdown, resetTime];
 };

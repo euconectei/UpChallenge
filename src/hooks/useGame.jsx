@@ -1,25 +1,28 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 export const useGame = () => {
   const [game, setGame] = useState({
+    animated: false,
     started: false,
-    gameover: false,
+    gameover: false
   });
 
-  const updateGame = ({ started, gameover }) =>
+  const updateGame = ({ animated, started, gameover }) =>
     setGame(prev => ({
       ...prev,
-      started: (started) ? started : prev.started,
-      gameover: (gameover) ? gameover : prev.gameover,
+      animated: animated ? animated : prev.animated,
+      started: started ? started : prev.started,
+      gameover: gameover ? gameover : prev.gameover
     }));
 
   const resetGame = useCallback(() => {
     setGame(prev => ({
       ...prev,
+      animated: false,
       started: false,
-      gameover: false,
+      gameover: false
     }));
   }, []);
 
-  return [game, updateGame, resetGame]
-}
+  return [game, updateGame, resetGame];
+};

@@ -1,5 +1,8 @@
 const started = Date.now();
 
-const timerCount = () => Date.now() - started;
+const timerCount = () => {
+  console.log(Date.now() - started);
+  return Date.now() - started;
+};
 
 export { timerCount };

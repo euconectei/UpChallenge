@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
-export const moveGrass = keyframes`
+const moveGrass = keyframes`
 0% {
     background-image: linear-gradient(#269863 50%, #30B660 0%);
   }
@@ -13,7 +13,7 @@ export const moveGrass = keyframes`
     background-image: linear-gradient(#269863 50%, #30B660 0%);
   }
 `;
-export const moveKerbs = keyframes`
+const moveKerbs = keyframes`
   0% {
     background-image: linear-gradient(red 50%, #fff 0%);
   }
@@ -26,15 +26,14 @@ export const moveKerbs = keyframes`
     background-image: linear-gradient(red 50%, #fff 0%);
   }
 `;
-export const moveTrack = keyframes`
+const moveTrack = keyframes`
 100% {
     top: 0%;
   }
 `;
 
-
 export const World = styled.div`
-  background-color: #25B4F7;
+  background-color: #25b4f7;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -42,7 +41,7 @@ export const World = styled.div`
 `;
 
 export const Floor = styled.div`
-bottom: 0;
+  bottom: 0;
   height: 75%;
   left: 50%;
   overflow: hidden;
@@ -52,7 +51,8 @@ bottom: 0;
 `;
 
 export const Grass = styled.div`
-animation: ${moveGrass} .3s linear infinite;
+  animation: ${moveGrass} 0.3s linear infinite 2.75s;
+  background-image: linear-gradient(#269863 50%, #30b660 0%);
   background-position: right;
   background-size: 5% 50%;
   height: 100%;
@@ -61,7 +61,8 @@ animation: ${moveGrass} .3s linear infinite;
 `;
 
 export const Kerbs = styled.div`
-  animation: ${moveKerbs} .3s linear infinite;
+  background-image: linear-gradient(red 50%, #fff 0%);
+  animation: ${moveKerbs} 0.3s linear infinite 2.75s;
   background-position: right;
   background-size: 10px 150px;
   bottom: 0;
@@ -74,8 +75,8 @@ export const Kerbs = styled.div`
 `;
 
 export const Track = styled.div`
-animation: ${moveTrack} .5s linear infinite;
-  background-color: #312D33;
+  animation: ${moveTrack} 0.5s linear infinite 2.75s;
+  background-color: #312d33;
   position: absolute;
   height: 110%;
   margin: 0 15px;
@@ -83,7 +84,7 @@ animation: ${moveTrack} .5s linear infinite;
   top: -30%;
 `;
 export const Lane = styled.div`
-  background-color: #7D787D;
+  background-color: #7d787d;
   height: 15%;
   position: absolute;
   width: 3%;

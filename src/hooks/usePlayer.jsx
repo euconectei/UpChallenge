@@ -5,16 +5,26 @@ export const usePlayer = () => {
     name: null,
     pos: "5%",
     speed: 0,
-    turbo: false,
+    turbo: false
   });
 
-  const updatePlayer = ({ name, pos, speed, turbo }) => setPlayer(prev => ({
-    ...prev,
-    name: (name) ? name : prev.name,
-    pos: (pos) ? pos : prev.pos,
-    speed: (speed) ? speed : prev.speed,
-    turbo: (turbo) ? turbo : prev.turbo
-  }));
+  const updateSpeed = () =>
+    setPlayer(prev =>
+      prev.speed <= 285
+        ? {
+            ...prev,
+            speed: prev.speed + 0.15
+          }
+        : prev
+    );
+
+  const updatePlayer = ({ name, pos, turbo }) =>
+    setPlayer(prev => ({
+      ...prev,
+      name: name ? name : prev.name,
+      pos: pos ? pos : prev.pos,
+      turbo: turbo ? turbo : prev.turbo
+    }));
 
   const resetPlayer = useCallback(() => {
     setPlayer(prev => ({
@@ -26,5 +36,5 @@ export const usePlayer = () => {
     }));
   }, []);
 
-  return [player, updatePlayer, resetPlayer];
+  return [player, updatePlayer, updateSpeed, resetPlayer];
 };
